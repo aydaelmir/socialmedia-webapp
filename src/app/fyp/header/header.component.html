@@ -1,0 +1,23 @@
+<header class="header blue-bg">
+  <app-user-avatar
+    [userName]="user.userName"
+    [src]="user.avatar"
+    (avatarClicked)="avatarClick()"
+  >
+  </app-user-avatar>
+  <input
+    #searchInputRef
+    type="text"
+    placeholder="Search here.."
+    [value]="searchKey"
+    (keyup)="onKeyUp()"
+    (keydown)="onKeyDown()"
+  />
+  <button>Log Out</button>
+</header>
+
+<app-search-menu
+  *ngIf="searchResults"
+  [results]="searchResults"
+  (onUserClick)="userClick($event)"
+></app-search-menu>

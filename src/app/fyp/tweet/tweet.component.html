@@ -1,0 +1,37 @@
+<div class="tweet">
+  <app-user-avatar
+    *ngIf="tweet.user"
+    [userName]="tweet.user.userName"
+    [src]="tweet.user.avatar"
+    (avatarClicked)="visitProfile()"
+  >
+  </app-user-avatar>
+
+  {{ tweet.content }}
+  <div class="buttons">
+    <button (click)="like()"><span class="like"></span></button>
+    <button (click)="ToggleCommentForm()"><span class="comment"></span></button>
+  </div>
+  <div *ngIf="writingComment">
+    <div *ngIf="tweet.comments">
+      <div *ngFor="let comment of tweet.comments" class="commentWrapper">
+        <app-user-avatar
+          *ngIf="comment.user"
+          [userName]="comment.user.userName"
+          [src]="comment.user.avatar"
+        >
+        </app-user-avatar>
+        {{ comment.text }}
+      </div>
+    </div>
+    <input
+      type="text"
+      #newComment
+      placeholder="Post your reply..."
+      [(ngModel)]="currentComment"
+    />
+    <button (click)="postComment()">Post</button>
+    <button (click)="cancelComment()">Cancel</button>
+  </div>
+  <hr />
+</div>

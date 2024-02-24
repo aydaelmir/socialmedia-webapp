@@ -1,0 +1,52 @@
+<div class="login-page blue-bg">
+  <div class="logo">
+    <img src="assets/images/logo-img.png" alt="" />
+  </div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login-form-div">
+      <div class="email-password-inputs-container">
+        <img
+          class="logo-img"
+          draggable="false"
+          [src]="'assets/images/login.png'"
+          alt=""
+        />
+        <h1 class="welcome">ACCOUNT LOGIN</h1>
+        <label for="userName">UserName</label>
+        <input
+          type="userName"
+          id="userName"
+          class="userName-input"
+          formControlName="userName"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="password-input"
+          formControlName="password"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <div class="wrong-credentials-forgot-password">
+          <div *ngIf="showValidationMessage" class="validation-message">
+            <img
+              draggable="false"
+              class="exclamation-icon"
+              src="assets/images/exclamation.svg"
+              alt=""
+            />
+            <p class="text-message">Wrong Credentials</p>
+          </div>
+        </div>
+        <div class="sign-in-container">
+          <button class="sign-in" type="submit" [disabled]="loginForm.invalid">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

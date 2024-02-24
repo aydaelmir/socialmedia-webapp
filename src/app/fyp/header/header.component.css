@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+}
+input[type="text"] {
+  border-radius: 80px;
+  line-height: 2.5;
+  border-color: transparent;
+  width: 300px;
+
+  &:focus {
+    outline: none;
+  }
+}
+button {
+  background-color: #ffffff;
+  color: black;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+img {
+  width: 50px;
+  height: 30px;
+}

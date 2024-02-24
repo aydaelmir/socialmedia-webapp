@@ -1,0 +1,21 @@
+.blue-bg {
+  background-color: white;
+  padding: 10px;
+}
+
+app-user-avatar {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.avatar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+hr {
+  border: none;
+  margin-top: -7px;
+}

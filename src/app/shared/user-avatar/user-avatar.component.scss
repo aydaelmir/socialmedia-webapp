@@ -1,0 +1,93 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+  align-items: stretch;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 solid black;
+  box-sizing: border-box;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  list-style: none;
+  margin-left: 6px;
+  min-height: 0px;
+  min-width: 0px;
+  padding: 0px;
+  position: relative;
+  text-decoration: none;
+  z-index: 0;
+  color: #697787;
+  font-family: "font-regular", "font-regular-arabic", sans-serif;
+}
+
+.avatar {
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  color: #fff;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: "font-regular", "font-regular-arabic", sans-serif;
+  height: 3em;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 3em;
+  cursor: pointer;
+}
+
+.avatar-span {
+  margin: -3px 0px 0px 0px;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+
+.avatar-circle {
+  border-radius: 100%;
+}
+
+.avatar-xxsmall {
+  font-size: 3.4px;
+}
+
+.avatar-xxxsmall {
+  font-size: 7px;
+}
+
+.avatar-xsmall {
+  font-size: 10px !important;
+}
+
+.avatar-small {
+  font-size: 12px !important;
+}
+
+.avatar-medium {
+  font-size: 13.5px !important;
+}
+
+.avatar-large {
+  font-size: 14px !important;
+}
+
+.avatar-xlarge {
+  font-size: 16px !important;
+}
+
+.avatar-xxlarge {
+  font-size: 26px !important;
+}

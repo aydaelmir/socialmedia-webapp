@@ -1,0 +1,29 @@
+.tweet {
+  padding: 6px;
+}
+
+.like {
+  mask: url("/assets/images/like.svg");
+  display: inline-block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  height: 28px;
+  width: 28px;
+  background-color: black;
+}
+.comment {
+  mask: url("/assets/images/comment.svg");
+  display: inline-block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  height: 28px;
+  width: 28px;
+  background-color: black;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}

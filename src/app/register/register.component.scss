@@ -1,0 +1,109 @@
+.sign-up-page {
+  display: flex;
+  justify-content: center;
+  color: white;
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.sign-up-form {
+  display: flex;
+  height: 100%;
+  padding: 0 20px;
+  overflow-x: auto;
+
+  .sign-up-form-div {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+  }
+
+  .inputs-container {
+    width: 622px;
+    margin-top: 1dvh;
+  }
+
+  .wrong-credentials-forgot-password {
+    display: flex;
+  }
+}
+
+.welcome {
+  font-size: 40px;
+  font-family: "font-regular", "font-regular-arabic", sans-serif;
+  text-align: center;
+  margin-block-end: 31px;
+}
+
+input {
+  display: block;
+  width: 535px;
+  width: 100%;
+  height: 40px;
+  border: 0px;
+  border-radius: 4px;
+  line-height: 24;
+  padding-inline-start: 5px;
+  margin-block-start: 1px;
+  font-size: 16px;
+
+  &.error {
+    border: 1px solid #dc3545;
+  }
+}
+
+.userName-input {
+  margin-block-end: 35px;
+}
+
+.password-input {
+  margin-block-end: 18px;
+}
+
+.validation-message {
+  display: flex;
+  color: #f7616f;
+
+  .exclamation-icon {
+    height: 23px;
+    width: 23px;
+    margin-block-start: 10px;
+    margin-inline-end: 7px;
+  }
+
+  .text-message {
+    margin-top: 41px;
+    margin-inline-start: 4px;
+    font-family: "font-medium", "font-medium-arabic", sans-serif;
+    font-size: 16px;
+  }
+}
+
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 16px;
+  margin-block-end: 12px;
+}
+
+.sign-up {
+  height: 40px;
+  background-color: white;
+  border: 1px solid #03a9f4;
+  color: #000000;
+  font-size: 16px;
+  padding: 10px 33px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  &:hover {
+    background-color: darkblue;
+    border: 1px solid darkblue;
+  }
+
+  &:disabled {
+    background-color: #03a9f4;
+  }
+}

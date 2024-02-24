@@ -1,0 +1,9 @@
+<div class="header">
+  <button class="blue-bg" (click)="cancel()">Cancel</button>
+
+  <button class="blue-bg" (click)="postTweet()" [disabled]="!tweet.length">
+    Post
+  </button>
+</div>
+<textarea placeholder="What's happening?" [(ngModel)]="tweet">
+</textarea>

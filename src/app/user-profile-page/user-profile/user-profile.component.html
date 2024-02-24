@@ -1,0 +1,8 @@
+@if (user) {<app-user-avatar [userName]="user.userName" [src]="user.avatar">
+</app-user-avatar
+>}
+<app-tweet
+  *ngFor="let tweet of userDataService.tweets$ | async"
+  [tweet]="tweet"
+>
+</app-tweet>

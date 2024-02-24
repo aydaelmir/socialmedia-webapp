@@ -1,0 +1,10 @@
+<div class="blue-bg">
+  <app-user-avatar
+    *ngFor="let user of results"
+    [src]="user.avatar"
+    [userName]="user.userName"
+    (avatarClicked)="userClick(user.accountId ? user.accountId : '')"
+  >
+  </app-user-avatar>
+  <hr />
+</div>

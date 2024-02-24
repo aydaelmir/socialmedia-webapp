@@ -1,0 +1,27 @@
+.add-tweet-icon {
+  mask: url("/assets/images/plus-icon.svg");
+  display: inline-block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  height: 36px;
+  width: 45px;
+}
+.add-form {
+  z-index: 1;
+  background-color: white;
+  width: 500px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 250px);
+  margin: auto;
+  height: 300px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+.add-tweet-button {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  right: 10px;
+}

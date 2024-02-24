@@ -1,0 +1,24 @@
+<div
+  class="avatar {{ hasSize }}"
+  [ngClass]="{ 'avatar-circle': isCircle }"
+  [ngStyle]="{
+    background: sourceImage ? 'transparent !important' : defaultBackground
+  }"
+  [title]="userName"
+  (click)="emitClick()"
+>
+  <img
+    *ngIf="sourceImage"
+    [src]="sourceImage ? sourceImage : 'assets/images/profiles/Unassigned.svg'"
+    alt=""
+  />
+  <span *ngIf="!sourceImage" class="avatar-span">
+    {{ first2CharctersOfUsername }}
+  </span>
+</div>
+<div class="userName">
+  <span>
+    {{ name }}
+  </span>
+  <span>&#64;{{ userName }} </span>
+</div>

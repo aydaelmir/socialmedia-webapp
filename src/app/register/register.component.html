@@ -1,0 +1,96 @@
+<div class="sign-up-page blue-bg">
+  <form class="sign-up-form" [formGroup]="registerForm" (ngSubmit)="signUp()">
+    <div class="sign-up-form-div">
+      <div class="inputs-container">
+        <img
+          class="logo-img"
+          draggable="false"
+          [src]="'assets/images/login.png'"
+          alt=""
+        />
+        <p class="welcome">Create a new account</p>
+        <label for="firstName">First Name</label>
+        <input
+          type="firstName"
+          id="firstName"
+          class="firstName-input"
+          formControlName="firstName"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="lastName">Last Name</label>
+        <input
+          type="lastName"
+          id="lastName"
+          class="lastName-input"
+          formControlName="lastName"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="userName">UserName</label>
+        <input
+          type="userName"
+          id="userName"
+          class="userName-input"
+          formControlName="userName"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="email-input"
+          formControlName="email"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          type="phoneNumber"
+          id="phoneNumber"
+          type="number"
+          class="phoneNumber-input"
+          formControlName="phoneNumber"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="dateOfBirth">Date of birth</label>
+        <input
+          type="dateOfBirth"
+          id="dateOfBirth"
+          type="date"
+          class="dateOfBirth-input"
+          formControlName="dateOfBirth"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <h3>Create a new password</h3>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          type="password"
+          class="password-input"
+          formControlName="password"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="confirmPassword"
+          id="confirmPassword"
+          type="password"
+          class="confirmPassword-input"
+          formControlName="confirmPassword"
+          [class.error]="showValidationMessage"
+          (input)="showValidationMessage = false"
+        />
+        @if (!matchingPasswords) { Passwords should match }
+        <div class="sign-up-container">
+          <button class="sign-up" type="submit">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

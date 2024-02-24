@@ -1,0 +1,29 @@
+<div class="bg-blue">
+  <app-header
+    [user]="tweetsService.currentUser"
+    [searchResults]="userDataService.searchResults$ | async"
+    (onSearchEmitter)="searchForUsers($event)"
+    (onAvatarClick)="visitProfile()"
+    (onUserClick)="visitProfileById($event)"
+  ></app-header>
+  <button
+    class="add-tweet-button"
+    *ngIf="!addTweetFormShown"
+    (click)="showAddTweetForm()"
+  >
+    <span class="add-tweet-icon blue-bg"></span>
+    <!-- <img src="/assets/images/add-icon.jpg" alt="Add Tweet Icon" /> -->
+  </button>
+</div>
+<div *ngIf="addTweetFormShown" class="add-form">
+  <app-add-tweet-form
+    (onPostEmitter)="postTweet($event)"
+    (onCancelEmitter)="hideAddTweetForm()"
+  ></app-add-tweet-form>
+</div>
+<app-tweet
+  *ngFor="let tweet of tweetsService.tweets"
+  [tweet]="tweet"
+  (onAvatarClick)="visitProfileById($event)"
+>
+</app-tweet>
