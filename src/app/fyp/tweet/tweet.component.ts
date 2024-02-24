@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tweet } from '../../models/Tweet';
 import { UserAvatarComponent } from '../../shared/user-avatar/user-avatar.component';
 import { CommonModule } from '@angular/common';
@@ -13,14 +13,26 @@ import { Comment } from '../../models/Comment';
   templateUrl: './tweet.component.html',
   styleUrl: './tweet.component.css',
 })
-export class TweetComponent {
+export class TweetComponent implements OnInit {
   @Input() tweet!: Tweet;
 
   @Output() onAvatarClick = new EventEmitter();
   writingComment: boolean = false;
   currentComment: string = '';
+  likedByUser: boolean = false;
 
   constructor(private tweetService: TweetsService) {}
+
+  ngOnInit(): void {
+    if (!this.tweet.likes) {
+      console.log('likess');
+      this.tweetService.getLikesForTweet(this.tweet.id).subscribe((likes) => {
+        this.tweet.likes = likes;
+        console.log(likes);
+        this.likedByUser = likes.includes(this.tweetService.currentUser._id);
+      });
+    }
+  }
 
   ToggleCommentForm() {
     if (!this.tweet.comments) {
@@ -30,6 +42,7 @@ export class TweetComponent {
           this.tweet.comments = comments;
         });
     }
+
     this.writingComment = !this.writingComment;
   }
 
@@ -49,7 +62,16 @@ export class TweetComponent {
     this.writingComment = false;
   }
 
-  like() {}
+  like() {
+    this.tweetService.like(this.tweet.id).subscribe(() => {
+      if (this.tweet.likes) {
+        this.tweet.likes.push(this.tweetService.currentUser._id);
+      } else {
+        this.tweet.likes = [this.tweetService.currentUser._id];
+      }
+      this.likedByUser = true;
+    });
+  }
 
   visitProfile() {
     if (this.tweet.user)

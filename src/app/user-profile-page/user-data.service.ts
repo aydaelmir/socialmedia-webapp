@@ -18,7 +18,9 @@ export class UserDataService {
   >([]);
   followers$ = this.followersSource.asObservable();
 
-  followingsSource: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  followingsSource: BehaviorSubject<UserRelation[]> = new BehaviorSubject<
+    UserRelation[]
+  >([]);
   following$ = this.followingsSource.asObservable();
 
   searchResultsSource: BehaviorSubject<Account[]> = new BehaviorSubject<
@@ -52,23 +54,28 @@ export class UserDataService {
     let userId = this.currentUser.userId;
   }
 
-  getListOfFollowings() {}
+  getListOfFollowings() {
+    this.httpClient
+      .get(this.baseUrl + '/followings/' + this.appService.userAccount._id)
+      .subscribe((res: any) => {
+        console.log(res);
+
+        this.followingsSource.next(res);
+      });
+  }
 
   changeProfile() {}
 
   editProfileInfo() {}
 
   follow(accountId: string) {
-    console.log(this.appService.userAccount);
     let body = {
       followerId: this.appService.userAccount._id,
       userId: accountId,
       followedBack: false,
     };
     console.log(body);
-    this.httpClient.post(this.baseUrl + '/follow', body).subscribe((res) => {
-      console.log(res);
-    });
+    return this.httpClient.post(this.baseUrl + '/follow', body);
   }
 
   searchForUsers(searchKey: string) {
@@ -84,7 +91,6 @@ export class UserDataService {
   }
 
   getUserById(userId: string) {
-    return this.httpClient
-      .get<Account>(this.baseUrl + '/' + userId)
+    return this.httpClient.get<Account>(this.baseUrl + '/' + userId);
   }
 }

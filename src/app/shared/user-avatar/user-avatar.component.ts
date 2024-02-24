@@ -31,17 +31,6 @@ export class UserAvatarComponent implements OnInit, OnChanges {
   defaultBackground = '#838383';
   first2CharctersOfUsername = '';
 
-  sizesClasses: { [key: string]: string } = {
-    xxl: 'avatar-xxlarge',
-    xl: 'avatar-xlarge',
-    l: 'avatar-large',
-    s: 'avatar-small',
-    m: 'avatar-medium',
-    xs: 'avatar-xsmall',
-    xxs: 'avatar-xxsmall',
-    xxxs: 'avatar-xxxsmall',
-  };
-
   sourceImage: string | undefined = '';
 
   constructor() {}
@@ -53,9 +42,7 @@ export class UserAvatarComponent implements OnInit, OnChanges {
     this.first2CharctersOfUsername = this.getTheFirst2CharactersOfUsername();
   }
 
-  ngOnInit(): void {
-    this.hasSize = this.getClassNameBySize();
-  }
+  ngOnInit(): void {}
   emitClick() {
     this.avatarClicked.emit(this.id);
   }
@@ -80,9 +67,5 @@ export class UserAvatarComponent implements OnInit, OnChanges {
     }
 
     return first2CharctersOfUsername;
-  }
-
-  getClassNameBySize(): string {
-    return this.hasSize ? this.sizesClasses[this.hasSize] : '';
   }
 }

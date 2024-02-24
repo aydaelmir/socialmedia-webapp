@@ -47,13 +47,12 @@ export class RegisterComponent {
       } else {
         let userAccount: Account = {
           accountId: '',
-          userId: 0,
           userName: this.registerForm.value.userName,
           password: this.registerForm.value.password,
           firstName: this.registerForm.value.firstName,
           lastName: this.registerForm.value.lastName,
           email: this.registerForm.value.email,
-          birthDate: this.registerForm.value.birthDate,
+          birthDate: this.registerForm.value.dateOfBirth,
           phoneNumber: this.registerForm.value.phoneNumber,
           nbOfFollowers: 0,
           nbOfFollowings: 0,
@@ -61,6 +60,7 @@ export class RegisterComponent {
           bio: '',
           creationDate: new Date(),
         };
+        console.log(userAccount);
         this.loginService.signUp(userAccount);
       }
   }

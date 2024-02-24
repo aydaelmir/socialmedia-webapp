@@ -1,6 +1,12 @@
 @if (user) {<app-user-avatar [userName]="user.userName" [src]="user.avatar">
 </app-user-avatar
->}
+>} @if (!isFollowedByUser && userId != appService.userAccount?._id){<button
+  (click)="follow()"
+>
+  follow</button
+>} @else if(isFollowedByUser) {
+<p>Following</p>
+}
 <app-tweet
   *ngFor="let tweet of userDataService.tweets$ | async"
   [tweet]="tweet"

@@ -1,6 +1,5 @@
 export interface Account {
   accountId: string | null;
-  userId: number | null;
   userName: string;
   password: string;
   firstName: string;

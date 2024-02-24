@@ -22,4 +22,8 @@ export class AppService {
   setUserInfo(userAccount: Account) {
     localStorage.setItem('currentUser', JSON.stringify(userAccount));
   }
+
+  logOut() {
+    localStorage.setItem('currentUser', '');
+  }
 }

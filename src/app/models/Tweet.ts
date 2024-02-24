@@ -11,4 +11,5 @@ export interface Tweet {
   postedAt: Date;
   accountId: any;
   comments?: Comment[];
+  likes?: number[];
 }

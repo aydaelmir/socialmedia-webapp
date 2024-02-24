@@ -9,7 +9,10 @@
 
   {{ tweet.content }}
   <div class="buttons">
-    <button (click)="like()"><span class="like"></span></button>
+    @if (likedByUser){
+    <button>
+      <span class="liked"></span></button
+    >}@else{ <button (click)="like()"><span class="like"></span></button>}
     <button (click)="ToggleCommentForm()"><span class="comment"></span></button>
   </div>
   <div *ngIf="writingComment">

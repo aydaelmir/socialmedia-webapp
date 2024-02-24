@@ -12,6 +12,16 @@
   width: 28px;
   background-color: black;
 }
+.liked {
+  mask: url("/assets/images/heart-filled.svg");
+  display: inline-block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  height: 28px;
+  width: 28px;
+  background-color: red;
+}
 .comment {
   mask: url("/assets/images/comment.svg");
   display: inline-block;

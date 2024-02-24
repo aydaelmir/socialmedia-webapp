@@ -26,6 +26,7 @@ export class HeaderComponent {
   @Output() onSearchEmitter = new EventEmitter();
   @Output() onAvatarClick = new EventEmitter();
   @Output() onUserClick = new EventEmitter();
+  @Output() onLogOutClick = new EventEmitter();
 
   searchTimeout: any;
   searchKey: string = '';
@@ -51,5 +52,9 @@ export class HeaderComponent {
 
   userClick(id: string) {
     this.onUserClick.emit(id);
+  }
+
+  logOut() {
+    this.onLogOutClick.emit();
   }
 }

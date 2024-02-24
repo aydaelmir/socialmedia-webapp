@@ -30,12 +30,16 @@ export class TweetsComponent implements OnInit {
   constructor(
     public tweetsService: TweetsService,
     public userDataService: UserDataService,
+    private appService: AppService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     if (!this.tweetsService.tweets.length) {
       this.tweetsService.getFypTweets();
+    }
+    if (!this.userDataService.followingsSource.value.length) {
+      this.userDataService.getListOfFollowings();
     }
     // this.userDataService.follow('65bd22d2165d2c95a084bf62');
   }
@@ -50,8 +54,6 @@ export class TweetsComponent implements OnInit {
   }
 
   postTweet(tweet: any) {
-    console.log(tweet);
-
     this.addTweetFormShown = false;
     this.tweetsService.post(tweet);
   }
@@ -66,5 +68,10 @@ export class TweetsComponent implements OnInit {
 
   visitProfileById(id: string) {
     this.router.navigateByUrl('profile/' + id);
+  }
+
+  logOut() {
+    this.router.navigateByUrl('');
+    this.appService.logOut();
   }
 }

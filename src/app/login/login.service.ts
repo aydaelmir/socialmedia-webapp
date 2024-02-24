@@ -31,8 +31,9 @@ export class LoginService {
   signUp(userAccount: Account) {
     this.httpClient
       .post(this.baseUrl + '/register', userAccount)
-      .subscribe((response) => {
-        this.navigateToUser(response);
+      .subscribe((response: any) => {
+        console.log(response);
+        this.navigateToUser(response.account);
       });
   }
 

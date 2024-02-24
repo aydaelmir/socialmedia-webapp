@@ -44,7 +44,13 @@ export class TweetsService {
       });
   }
 
-  like(tweetId: number) {}
+  like(tweetId: number) {
+    let body = {
+      tweetId,
+      userId: this.currentUser._id,
+    };
+    return this.httpClient.post(this.baseUrl + '/like', body);
+  }
 
   removeLike(tweetId: number) {}
 
@@ -74,6 +80,16 @@ export class TweetsService {
           });
         })
       );
+  }
+
+  getLikesForTweet(tweetId: number) {
+    return this.httpClient.get<any[]>(this.baseUrl + '/likes/' + tweetId).pipe(
+      map((likes: any) => {
+        console.log(likes);
+        likes = likes.map((u: any) => u.userId);
+        return likes;
+      })
+    );
   }
 
   post(tweetText: string) {

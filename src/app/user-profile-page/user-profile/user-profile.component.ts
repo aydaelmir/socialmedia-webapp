@@ -26,20 +26,41 @@ import { TweetsService } from '../../fyp/tweets.service';
 export class UserProfileComponent {
   userId: string = '';
   user: Account | null = null;
+  isFollowedByUser: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
-    public userDataService: UserDataService
+    public userDataService: UserDataService,
+    public appService: AppService
   ) {}
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params['id'];
+
+    if (!this.userDataService.followingsSource.value.length) {
+      this.userDataService.getListOfFollowings();
+    }
     if (this.userId == this.userDataService.currentUser._id) {
       this.user = this.userDataService.currentUser;
     } else {
       this.userDataService.getUserById(this.userId).subscribe((user) => {
         this.user = user;
+        this.isFollowedByUser =
+          !!this.userDataService.followingsSource.value.find(
+            (u: any) => u.userId === this.userId
+          );
       });
     }
     this.userDataService.getTweets(this.userId);
+  }
+
+  follow() {
+    this.userDataService.follow(this.userId).subscribe((res: any) => {
+      this.isFollowedByUser = true;
+      this.userDataService.followersSource.next([
+        res,
+        ...this.userDataService.followersSource.value,
+      ]);
+    });
   }
 }

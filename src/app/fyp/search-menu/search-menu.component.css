@@ -1,6 +1,9 @@
-.blue-bg {
+.search-wrapper {
   background-color: white;
-  padding: 10px;
+  position: absolute;
+  top: 48px;
+  left: calc(50% - 100px);
+  border-radius: 4px;
 }
 
 app-user-avatar {
@@ -9,6 +12,7 @@ app-user-avatar {
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .avatar-container {
   display: flex;
   justify-content: space-between;
