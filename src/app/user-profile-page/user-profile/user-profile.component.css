@@ -1,0 +1,12 @@
+.app-user {
+  display: flex;
+}
+.btn-follow {
+  border-radius: 10px;
+  background-color: #03a9f4;
+  margin-left: 300px;
+  font-weight: bold;
+  width: 86px;
+  height: 36px;
+  margin-bottom: 23px;
+}
