@@ -60,7 +60,6 @@ export class RegisterComponent {
           bio: '',
           creationDate: new Date(),
         };
-        console.log(userAccount);
         this.loginService.signUp(userAccount);
       }
   }

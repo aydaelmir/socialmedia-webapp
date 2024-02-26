@@ -41,11 +41,9 @@ export class TweetsComponent implements OnInit {
     if (!this.userDataService.followingsSource.value.length) {
       this.userDataService.getListOfFollowings();
     }
-    // this.userDataService.follow('65bd22d2165d2c95a084bf62');
   }
 
   showAddTweetForm() {
-    console.log('hi');
     this.addTweetFormShown = true;
   }
 

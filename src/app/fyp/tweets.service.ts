@@ -39,7 +39,6 @@ export class TweetsService {
           t.user.accountId = t.accountId._id;
           t.id = t._id;
         });
-        console.log(tweets);
         this.tweets = [...tweets];
       });
   }
@@ -55,7 +54,6 @@ export class TweetsService {
   removeLike(tweetId: number) {}
 
   comment(tweetId: number, commentText: string) {
-    console.log(commentText);
     let body = {
       tweetId,
       text: commentText,
@@ -85,7 +83,6 @@ export class TweetsService {
   getLikesForTweet(tweetId: number) {
     return this.httpClient.get<any[]>(this.baseUrl + '/likes/' + tweetId).pipe(
       map((likes: any) => {
-        console.log(likes);
         likes = likes.map((u: any) => u.userId);
         return likes;
       })

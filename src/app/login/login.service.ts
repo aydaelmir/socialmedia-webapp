@@ -22,7 +22,6 @@ export class LoginService {
       .post<Account>(this.baseUrl + '/authenticate', user)
       .pipe(
         tap((userLogin: any) => {
-          console.log(userLogin);
           this.navigateToUser(userLogin);
         })
       );
@@ -32,7 +31,6 @@ export class LoginService {
     this.httpClient
       .post(this.baseUrl + '/register', userAccount)
       .subscribe((response: any) => {
-        console.log(response);
         this.navigateToUser(response.account);
       });
   }

@@ -25,10 +25,9 @@ export class TweetComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.tweet.likes) {
-      console.log('likess');
       this.tweetService.getLikesForTweet(this.tweet.id).subscribe((likes) => {
         this.tweet.likes = likes;
-        console.log(likes);
+
         this.likedByUser = likes.includes(this.tweetService.currentUser._id);
       });
     }

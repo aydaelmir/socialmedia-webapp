@@ -1,17 +1,30 @@
 <div class="app-user">
-  @if (user) {<app-user-avatar [userName]="user.userName" [src]="user.avatar">
-  </app-user-avatar
-  >} @if (!isFollowedByUser && userId != appService.userAccount?._id){<button
-    class="btn-follow"
-    (click)="follow()"
-  >
-    Follow</button
-  >} @else if(isFollowedByUser) {
-  <p class="follow">Following</p>
+  @if (user) {
+  <app-user-avatar [userName]="user.userName" [src]="user.avatar">
+  </app-user-avatar>
+  } @if (!isFollowedByUser && userId != appService.userAccount?._id){
+  <button class="follow" (click)="follow()">Follow</button>
+  } @else if(isFollowedByUser) {
+  <p class="following">Following</p>
   }
 </div>
+
 <app-tweet
   *ngFor="let tweet of userDataService.tweets$ | async"
   [tweet]="tweet"
->
-</app-tweet>
+></app-tweet>
+<div class="app-user">
+  @if (user) {
+  <app-user-avatar [userName]="user.userName" [src]="user.avatar">
+  </app-user-avatar>
+  } @if (!isFollowedByUser && userId != appService.userAccount?._id){
+  <button class="btn-follow" (click)="follow()">Follow</button>
+  } @else if(isFollowedByUser) {
+  <p class="following">Following</p>
+  }
+</div>
+
+<app-tweet
+  *ngFor="let tweet of userDataService.tweets$ | async"
+  [tweet]="tweet"
+></app-tweet>

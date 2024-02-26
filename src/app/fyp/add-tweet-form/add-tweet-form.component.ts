@@ -20,7 +20,6 @@ export class AddTweetFormComponent {
   }
 
   cancel() {
-    console.log('hi');
     this.onCancelEmitter.emit();
   }
 }

@@ -46,7 +46,6 @@ export class UserDataService {
           t.id = t._id;
         });
         this.tweetsSource.next(tweets);
-        console.log(tweets);
       });
   }
 
@@ -58,8 +57,6 @@ export class UserDataService {
     this.httpClient
       .get(this.baseUrl + '/followings/' + this.appService.userAccount._id)
       .subscribe((res: any) => {
-        console.log(res);
-
         this.followingsSource.next(res);
       });
   }
@@ -74,7 +71,7 @@ export class UserDataService {
       userId: accountId,
       followedBack: false,
     };
-    console.log(body);
+
     return this.httpClient.post(this.baseUrl + '/follow', body);
   }
 

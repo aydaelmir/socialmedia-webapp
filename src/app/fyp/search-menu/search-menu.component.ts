@@ -15,7 +15,6 @@ export class SearchMenuComponent {
   @Output() onUserClick = new EventEmitter();
 
   userClick(id: string) {
-    console.log(id);
     this.onUserClick.emit(id);
   }
 }
